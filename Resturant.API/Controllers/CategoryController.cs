@@ -32,7 +32,7 @@ namespace Resturants.API.Controllers
             return Ok(category);
         }
         [HttpPut]
-        public IActionResult Update(UpdateCategoryDto dto)
+        public IActionResult Update( UpdateCategoryDto dto)
         {
             var category = _categoryService.Update(dto);
             return Ok(category);

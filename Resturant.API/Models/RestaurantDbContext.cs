@@ -86,8 +86,15 @@ namespace Resturants.API.Models
             });
 
             OnModelCreatingPartial(modelBuilder);
+
+            modelBuilder.Entity<Customer>().HasQueryFilter(x => !x.IsDelete);
+            modelBuilder.Entity<Resturant>().HasQueryFilter(x => !x.IsDelete);
+            modelBuilder.Entity<Category>().HasQueryFilter(x => !x.IsDelete);
+            modelBuilder.Entity<Meal>().HasQueryFilter(x => !x.IsDelete);
+            modelBuilder.Entity<Order>().HasQueryFilter(x => !x.IsDelete);
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
     }
 }
